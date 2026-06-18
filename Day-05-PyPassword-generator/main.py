@@ -16,12 +16,21 @@ no_of_symbols=int(input("How many symbols would you like in your password ?"))
 
 no_of_numbers=int(input("How many numbers would you like in your password ?"))
 
-password = ""
+password_list = []
 
 for char in range(0,no_of_letters):
-    password+=random.choice(letters)
+    password_list.append(random.choice(letters))
+
 for char in range(0,no_of_symbols):
-    password+=random.choice(symbols)
+    password_list.append(random.choice(symbols))
+
 for char in range(0,no_of_numbers):
-    password+=random.choice(numbers)
+    password_list.append(random.choice(numbers))
+
+random.shuffle(password_list)
+password=""
+for char in password_list:
+    password+=char
+
+
 print(f"Here is your password {password}")
